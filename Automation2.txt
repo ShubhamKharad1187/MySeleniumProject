@@ -15,7 +15,7 @@ public class Screenshot {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-            // System.setProperty
+
 		// System.setProperty("webdriver.chrome.driver","/D://Shubham
 		// QA//Software//chromedriver_win32//chromedriver.exe/");
                 // Here we have used WebDriverManager to access with chrome 
