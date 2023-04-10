@@ -31,7 +31,7 @@ public class Screenshot {
 		driver.manage().window().maximize();
 
 		Thread.sleep(2000);
-
+            // This will take the screen shot 
 		File s = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		File d = new File("/D://Shubham QA//ScreenShot//New Image.bmp/");
