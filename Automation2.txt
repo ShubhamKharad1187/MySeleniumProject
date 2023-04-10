@@ -1,0 +1,43 @@
+package Selenium;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Screenshot {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+		// System.setProperty("webdriver.chrome.driver","/D://Shubham
+		// QA//Software//chromedriver_win32//chromedriver.exe/");
+
+		WebDriverManager.chromedriver().setup();
+
+		ChromeOptions co = new ChromeOptions();
+		co.addArguments("--remote-allow-origins=*");
+
+		WebDriver driver = new ChromeDriver(co);
+
+		driver.get("https://www.facebook.com/");
+
+		driver.manage().window().maximize();
+
+		Thread.sleep(2000);
+
+		File s = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+		File d = new File("/D://Shubham QA//ScreenShot//New Image.bmp/");
+
+		FileUtils.copyFile(s, d);
+
+	}
+
+}
