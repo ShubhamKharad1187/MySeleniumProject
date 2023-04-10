@@ -35,7 +35,7 @@ public class Screenshot {
 		File s = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		File d = new File("/D://Shubham QA//ScreenShot//New Image.bmp/");
-
+                // Here we have copied source file to destination file
 		FileUtils.copyFile(s, d);
 
 	}
