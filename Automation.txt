@@ -1,0 +1,46 @@
+package Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ActionClassEx1 {
+
+	public static void main(String[] args) throws InterruptedException {
+
+	// This is new method to access chrome driver	
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions co = new ChromeOptions();
+		co.addArguments("--remote-allow-origins=*");
+		
+		WebDriver driver = new ChromeDriver(co);
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.id("searchDropdownBox")).click();
+		
+		// Now we are ussing Actions class in this method to perform the mouse and keybords keys oprations
+		Actions act = new Actions(driver);
+		//Here we have to use for loop to click the Down Arrow key as many time as we want
+		for (int i=1;i<=10;i++) {
+			act.sendKeys(Keys.ARROW_DOWN).build().perform();
+			Thread.sleep(1000);
+		}
+		for (int i=1;i<=5;i++) {
+			act.sendKeys(Keys.ARROW_UP).build().perform();
+			Thread.sleep(1000);
+		}
+		for (int i=1;i<=9;i++) {
+			act.sendKeys(Keys.ARROW_DOWN).build().perform();
+			Thread.sleep(1000);
+		}
+		act.sendKeys(Keys.ENTER).build().perform();
+		driver.findElement(By.id("nav-search-submit-button")).click();
+		}
+
+}
